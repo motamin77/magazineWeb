@@ -259,23 +259,18 @@
                     <div class="col-xl-8 col-lg-7">
                         <div class="blog-details-wrap">
                             <ul class="tgbanner__content-meta list-wrap">
-                                <li class="category"><a href="blog.html">technology</a></li>
-                                <li><span class="by">By</span> <a href="blog.html">alonso d.</a></li>
-                                <li>nov 22, 2022</li>
+                                <a href="#"> {{post.category.all|join:", "}}</a>
+                                <li><span class="by"> By</span> <a href="blog.html">{{post.author}}</a></li>
+                                <li>{{post.publish_date}}</li>
                                 <li>23 comments</li>
                             </ul>
-                            <h2 class="title">Envato officially goes carbon neutral ahead of Earth Day</h2>
+                            <h2 class="title">{{post.title}}</h2>
                             <div class="blog-details-thumb">
-                                <img src="{% static 'assets/img/lifestyle/life_style01.jpg' %}" alt="">
+                                <img src="{{post.image.url}}" alt="">
                             </div>
                             <div class="blog-details-content">
-                                <p>In partnership with Sydney startup Trace, Envato is delivering on its sustainability promise as a B-Corp and meeting part of its recent commitment to the To Whom It Should Concern campaign. Envato is now officially carbon neutral, as part of a comprehensive new sustainability.</p>
-                                <p>When we signed on to the To Whom It May Concern campaign we made a pledge to be 100% renewable by 2030 and carbon zero by 2040,” said Envato CEO Hichame Assi. “It’s a commitment made on the back of our B Corp certification, and one we believe reflects not just our values but a broader sense of how businesses can contribute to fighting climate change.</p>
-                                <p>We are proud that our people can make a positive impact on the world around us through their work at Envato. And while there is still lots of work to do to realise carbon, we’re nonetheless pleased we’ve reached this sustainability milestone and thrilled to partner with Trace to further track and refine the management of our carbon footprint. An through Trace, Envato is now able to more comprehensively measure the amount of carbon emissions the business generates. This includes not just its physical offices in Melbourne, Guadalajara and Los Angeles, but also includes an estimate of the footprint of its 600 plus staff who work flexibly around the world, as well as the usage tied to its tech infrastructure including our cloud computing services.</p>
-                                <div class="blog-details-inner">
-                                    <h3 class="inner-title">Building the Future of Artificial Intelligence</h3>
-                                    <p>When we signed on to the To Whom It May Concern campaign we made a pledge to be 100% renewable by 2030 and carbon zero by 2040,” said Envato CEO Hichame Assi. “It’s a commitment made on the back of our B Corp certification, and one we believe reflects not just our values but a broader sense of how businesses can contribute to fighting climate change.</p>
-                                    <div class="blog-details-images">
+                                {{post.content}}
+                                <div class="blog-details-images">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-6">
                                                 <div class="details-inner-image">
