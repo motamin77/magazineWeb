@@ -1,0 +1,14 @@
+{% load static %}
+<div class="sidePost-active">
+  {% for post in posts%}
+  <div class="sidePost__item" data-background="{{ post.image.url }}">
+    <div class="sidePost__content">
+      <a href="blog.html" class="tag">{{post.category.all|join:", "}}</a>
+
+      <h5 class="title tgcommon__hover">
+        <a href="blog-details.html"></a>{{post.title}}
+      </h5>
+    </div>
+  </div>
+  {% endfor %}
+</div>

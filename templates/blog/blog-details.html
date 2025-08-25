@@ -1,4 +1,5 @@
 {% load static %}
+{% load blog_tags %}
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -256,6 +257,7 @@
                             </ul>
                         </div>
                     </div>
+                    
                     <div class="col-xl-8 col-lg-7">
                         <div class="blog-details-wrap">
                             <ul class="tgbanner__content-meta list-wrap">
@@ -382,12 +384,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <aside class="blog-sidebar">
                             <div class="widget sidebar-widget">
-                                {% include "blog/blog-writer.html" %}
+                                <div>{% include "blog/blog-writer.html" %}</div>
                             </div>
                             <div class="widget sidebar-widget widget_categories">
                                 <h4 class="widget-title">Trending Category</h4>
@@ -420,26 +421,7 @@
                                 </ul>
                             </div>
                             <div class="widget sidebar-widget">
-                                <div class="sidePost-active">
-                                    <div class="sidePost__item" data-background="{% static 'assets/img/category/side_post01.jpg' %}">
-                                        <div class="sidePost__content">
-                                            <a href="blog.html" class="tag">Technology</a>
-                                            <h5 class="title tgcommon__hover"><a href="blog-details.html">Tips for helping to make an your startup a success</a></h5>
-                                        </div>
-                                    </div>
-                                    <div class="sidePost__item" data-background="{% static 'assets/img/category/side_post02.jpg' %}">
-                                        <div class="sidePost__content">
-                                            <a href="blog.html" class="tag">Travel</a>
-                                            <h5 class="title tgcommon__hover"><a href="blog-details.html">Tips for helping to make an your startup a success</a></h5>
-                                        </div>
-                                    </div>
-                                    <div class="sidePost__item" data-background="{% static 'assets/img/category/side_post02.jpg' %}">
-                                        <div class="sidePost__content">
-                                            <a href="blog.html" class="tag">Gaming</a>
-                                            <h5 class="title tgcommon__hover"><a href="blog-details.html">Tips for helping to make an your startup a success</a></h5>
-                                        </div>
-                                    </div>
-                                </div>
+                               {% popularposts %}
                             </div>
                             <div class="widget sidebar-widget">
                                 <h4 class="widget-title">Instagram Feeds</h4>
@@ -494,6 +476,8 @@
                             </div>
                         </aside>
                     </div>
+                    </div>
+                    
                 </div>
             </div>
         </section>

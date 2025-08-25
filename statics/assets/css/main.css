@@ -5864,6 +5864,7 @@ blockquote .blockquote-cite .info span {
 }
 .sidePost__content {
   align-self: flex-end;
+  max-width: 100%;
 }
 .sidePost__content .tag {
   display: inline-block;
