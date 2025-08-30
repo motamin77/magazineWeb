@@ -261,10 +261,15 @@
                     <div class="col-xl-8 col-lg-7">
                         <div class="blog-details-wrap">
                             <ul class="tgbanner__content-meta list-wrap">
-                                <a href="#"> {{post.category.all|join:", "}}</a>
+                                {% for cat in post.category.all %}
+                                <a href="{% url 'blog:category' cat_name=cat.name %}">{{cat.name}} </a>
+                                {% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                                {% for post in posts %}
                                 <li><span class="by"> By</span> <a href="blog.html">{{post.author}}</a></li>
                                 <li>{{post.publish_date}}</li>
                                 <li>23 comments</li>
+                                {% endfor %}
                             </ul>
                             <h2 class="title">{{post.title}}</h2>
                             <div class="blog-details-thumb">

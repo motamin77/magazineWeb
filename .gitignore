@@ -25,7 +25,6 @@ ENV/
 *.log
 *.pot
 *.pyc
-db.sqlite3
 static/
 local_settings.py
 *.mo

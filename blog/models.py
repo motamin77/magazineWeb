@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class category(models.Model):
+class CATEGORY(models.Model):
     name=models.CharField(max_length=100)
 
     def __str__(self):
@@ -10,7 +10,7 @@ class category(models.Model):
     
 class POST(models.Model):
     image = models.ImageField(upload_to='blog/',default='blog/default.jpg')
-    category = models.ManyToManyField(category)
+    category = models.ManyToManyField(CATEGORY)
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     title = models.CharField(max_length=255)
     preview = models.TextField(null=True)

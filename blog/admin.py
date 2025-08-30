@@ -1,5 +1,5 @@
 from django.contrib import admin
-from blog.models import POST , category
+from blog.models import POST , CATEGORY
 
 class PostAdmin(admin.ModelAdmin):
     date_hierarchy='created_date'
@@ -12,4 +12,4 @@ class PostAdmin(admin.ModelAdmin):
     list_per_page = 20
 # Register your models here.
 admin.site.register(POST,PostAdmin)
-admin.site.register(category)
+admin.site.register(CATEGORY)

@@ -1,4 +1,5 @@
 {% load static %}
+{% load blog_tags %}
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -51,11 +52,7 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-4 col-md-6 col-sm-6 order-2 order-lg-0">
-                        <div class="header__top-search">
-                            <form action="#">
-                                <input type="text" placeholder="Search here...">
-                            </form>
-                        </div>
+                       {%include "blog/blog-search.html"%}
                     </div>
                     <div class="col-lg-4 col-md-3 order-0 order-lg-2 d-none d-md-block">
                         <div class="header__top-logo logo text-lg-center">
@@ -265,8 +262,10 @@
                                 </div>
                                 <div class="latest__post-content">
                                     <ul class="tgbanner__content-meta list-wrap">
-                                        <li class="category"><a href="blog.html">technology</a></li>
-                                        <li><span class="by">By</span> <a href="blog.html">{{post.author}}</a></li>
+                                        {% for cat in post.category.all %}
+                                        <li class="category"> <a href="{% url 'blog:category' cat_name=cat.name %}">{{cat.name}} </a></li>
+                                        {% endfor %}
+                                        <li><span class="by">By</span> <a href="{% url 'blog:author' author_username=post.author.username %}">{{post.author}}</a></li>
                                         <li>{{post.publish_date}}</li>
                                     </ul>
                                     <h3 class="title tgcommon__hover"><a href="{% url 'blog:single' pid=post.id %}"> {{post.title}}</a></h3>
@@ -295,36 +294,7 @@
                                 
 
                             </div>
-                            <div class="widget sidebar-widget widget_categories">
-                                <h4 class="widget-title">Trending Category</h4>
-                                <ul class="list-wrap">
-                                    <li>
-                                        <div class="thumb"><a href="blog.html"><img src="{% static 'assets/img/category/side_category01.jpg' %}" alt="img"></a></div>
-                                        <a href="blog.html">technology</a>
-                                        <span class="float-right">12</span>
-                                    </li>
-                                    <li>
-                                        <div class="thumb"><a href="blog.html"><img src="{% static 'assets/img/category/side_category02.jpg' %}" alt="img"></a></div>
-                                        <a href="blog.html">business</a>
-                                        <span class="float-right">08</span>
-                                    </li>
-                                    <li>
-                                        <div class="thumb"><a href="blog.html"><img src="{% static 'assets/img/category/side_category03.jpg' %}" alt="img"></a></div>
-                                        <a href="blog.html">fitness</a>
-                                        <span class="float-right">13</span>
-                                    </li>
-                                    <li>
-                                        <div class="thumb"><a href="blog.html"><img src="{% static 'assets/img/category/side_category04.jpg' %}" alt="img"></a></div>
-                                        <a href="blog.html">Gadgets</a>
-                                        <span class="float-right">09</span>
-                                    </li>
-                                    <li>
-                                        <div class="thumb"><a href="blog.html"><img src="{% static 'assets/img/category/side_category05.jpg' %}" alt="img"></a></div>
-                                        <a href="blog.html">politics</a>
-                                        <span class="float-right">15</span>
-                                    </li>
-                                </ul>
-                            </div>
+                            {% postCategories %}
                             <div class="widget sidebar-widget">
                                 <div class="sidePost-active">
                                     <div class="sidePost__item" data-background="{% static 'assets/img/category/side_post01.jpg' %}">
