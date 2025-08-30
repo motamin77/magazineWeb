@@ -1,0 +1,123 @@
+{% extends 'website/base.html' %} {% load static %} {% block content %}
+
+<!-- contact-area -->
+<section class="contact-area">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="contact__content">
+          <h2 class="title">Get In Touch</h2>
+          <p>
+            We'd love to hear from you! Please fill out the form below and we'll
+            get back to you as soon as possible.
+          </p>
+        </div>
+        <div class="contact__form">
+          <form  action="{% url 'website:contact' %}" method="POST">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-grp">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name *"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-grp">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email *"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-grp">
+                  <input type="text" name="phone" placeholder="Phone Number" />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-grp">
+                  <input
+                    type="text"
+                    name="subject"
+                    placeholder="Subject *"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="form-grp">
+              <textarea
+                name="message"
+                placeholder="Your Message *"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="contact-info__wrap">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="contact__info-box">
+                <div class="icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="content">
+                  <h4 class="title">Office Address</h4>
+                  <p>
+                    123 Main Street, New York, <br />
+                    NY 10001, USA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="contact__info-box">
+                <div class="icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="content">
+                  <h4 class="title">Phone Number</h4>
+                  <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                  <p><a href="tel:+1234567891">+1 (234) 567-891</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="contact__info-box">
+                <div class="icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="content">
+                  <h4 class="title">Email Address</h4>
+                  <p>
+                    <a href="mailto:info@yourdomain.com">info@yourdomain.com</a>
+                  </p>
+                  <p>
+                    <a href="mailto:support@yourdomain.com"
+                      >support@yourdomain.com</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- contact-area-end -->
+
+{% endblock %}
