@@ -11,6 +11,13 @@
             We'd love to hear from you! Please fill out the form below and we'll
             get back to you as soon as possible.
           </p>
+          {% if messages %}
+          <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
         </div>
         <div class="contact__form">
           <form  action="{% url 'website:contact' %}" method="POST">

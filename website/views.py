@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect
+from website.forms import contactForm , newsletterForm
+from django.contrib import messages
 
 def home_page(request):
     return render(request, 'website/index.html')
@@ -7,11 +10,29 @@ def about_page(request):
     return render(request, 'website/about.html')
 
 def contact_page(request):
-    return render(request, 'website/contact.html')
+    if request.method == 'POST':
+        form = contactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your message has been sent successfully!')
+          
+        else:
+            messages.error(request, 'There was an error in your submission. Please correct the errors below.')
+    form = contactForm()                        
+    return render(request, 'website/contact.html', {'form': form})
+    
 
-# def services_page(request):
-#     return render(request, 'services.html')
-
+def newsletter_page(request):
+    if request.method == 'POST':
+        form = newsletterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+    else:
+        return HttpResponseRedirect('/')
+        
+    
+    
 # def faq_page(request):
 #     return render(request, 'faq.html')
 

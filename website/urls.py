@@ -9,5 +9,6 @@ urlpatterns = [
      path('about', about_page, name= 'about'),
      path('contact', contact_page, name= 'contact'),
      path('test', test, name= 'test'),
+     path('newsletter', newsletter_page, name= 'newsletter'),
 
 ]
